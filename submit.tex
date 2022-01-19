@@ -324,21 +324,64 @@ $\hat{a}_\mr{in}$モードのウィグナー関数を$W_\mr{in}(x_\mr{in},p_\mr{
 	W_\mr{out}(x_\mr{out}, p_\mr{out}) = \iint \dd x \dd p W_\mr{in}(x,p) \frac{1}{\pi e^{-2r}} e^{- \frac{(p_\mr{out} - p)^2 + (x_\mr{out} - x)^2}{ e^{-2r}}}\\
 	W_\mr{in}(x,p) = \frac{1}{2\pi (1-e^{-2|\alpha|^2})} \qty( e^{-(x-x_0)^2 - (p- p_0)^2} + e^{-(x+x_0)^2 - (p+p_0)^2} - 2e^{-x^2 - p^2} \cos{2(x_0 p - x p_0)})
 \end{gather*}
-.......項別積分します。
+x,pの重積分であるが片方ずつの積分成分に分離できる。\\
+またそれぞれは次の式を適当に変形して得られるため、それらを示しておく。
 \begin{gather*}
 	\int \dd x \, e^{-(x-x_0)^2} e^{-\frac{(x - x_\mr{out})^2}{e^{-2r}}}
 	=
 	\int \dd x \, e^{-(1+e^{2r})\qty( x- \frac{x_\mr{o}+e^{2r}x_\mr{out}}{1+e^{2r}} )^2} e^{-\frac{e^{2r(x_\mr{o} - x_\mr{out})^2}}{1+e^{2r}}}\\
-	= \sqrt{\frac{\pi}{1+e^{2r}}} \, e^{-\frac{e^{2r(x_\mr{o} - x_\mr{out})^2}}{1+e^{2r}}}
+	= \sqrt{\frac{\pi}{1+e^{2r}}} \, e^{-\frac{e^{2r(x_\mr{o} - x_\mr{out})^2}}{1+e^{2r}}}\\
+	\int \dd x \, e^{-x^2 - i2x p_0} e^{-\frac{(x-x_\mr{out})^2}{e^{-2r}}}
+	=
+	e^{-p_0^2} \sqrt{\frac{\pi}{1 + e^{2r}}} e^{-\frac{e^{2r}(-ip_0 - x_\mr{out})^2}{1+e^{2r}}}
 \end{gather*}
+これらを利用して
+\begin{gather*}
+	\iint \dd x \dd p \, e^{-(x-x_0)^2-(p-p_0)^2} e^{-\frac{(p_\mr{out}-p)^2+ (x_\mr{out} - x)^2}{e^{-2r}}}\\
+	= \frac{\pi}{1 + e^{2r}} e^{-\frac{e^{2r}(x_0 - x_\mr{out})^2}{1+e^{2r}} -\frac{e^{2r}(p_0 - p_\mr{out})^2}{1+e^{2r}}}\\
+	\iint \dd x \dd p \, 2e^{-x^2 - p^2} \cos{2(x_0 p - x p_0)} e^{-\frac{(p_\mr{out}-p)^2+ (x_\mr{out} - x)^2}{e^{-2r}}}\\
+	= 2\frac{\pi}{1 + e^{2r}} e^{-\frac{p_0^2 + x_0^2}{1+e^{2r}}} e^{-\frac{e^{2r}}{1+e^{2r}}(x_\mr{out}^2 + p_\mr{out}^2)} \cos \qty( \frac{e^{2r}}{1+e^{2r}} 2(x_0 p_\mr{out} - x_\mr{out} p_0) )
+\end{gather*}
+となる。よって出力ウィグナー関数は次のようになる。\\
+$r \rightarrow \infty$で入力ウィグナー関数と等しくなるため、
+完全な量子テレポーテーションがでている。
+\begin{align*}
+	W_\mr{out}(x_\mr{out}, p_\mr{out}) \\
+	= \frac{1}{2\pi (1-e^{-2|\alpha|^2})} \frac{1}{1+e^{-2r}} \Biggl\{
+	&+e^{-\frac{e^{2r}(x_0 - x_\mr{out})^2}{1+e^{2r}} -\frac{e^{2r}(p_0 - p_\mr{out})^2}{1+e^{2r}}}\\
+	&+ e^{-\frac{e^{2r}(-x_0 - x_\mr{out})^2}{1+e^{2r}} -\frac{e^{2r}(-p_0 - p_\mr{out})^2}{1+e^{2r}}}\\
+	&- 2 e^{-\frac{p_0^2 + x_0^2}{1+e^{2r}}} e^{-\frac{e^{2r}}{1+e^{2r}}(x_\mr{out}^2 + p_\mr{out}^2)} \cos \qty( \frac{e^{2r}}{1+e^{2r}} 2(x_0 p_\mr{out} - x_\mr{out} p_0) ) \Biggr\}
+\end{align*}
+これを3Dプロットすると次のようになる。ただし$\alpha=1.4$かつ$r=1.5$。\\
+\includegraphics[width=0.9\linewidth]{./graphics/wigner_cat_tele.pdf}
 
+\begin{itembox}[l]{問題}
+	\vspace*{-0mm}
+	\centering
+	\includegraphics[width=1\linewidth]{./graphics/5.pdf}
+\end{itembox}
 
+講義で説明があったようにNSSおよび光子状態の量子干渉を利用することで、\\
+下の図が制御Zゲートとして働く。\\
+\includegraphics[width=0.9\linewidth]{./graphics/nss.pdf}\\
+制御Zを使って制御Xゲートを構成するために、アダマールゲートが必要である。\\
+論理Qbitを2本のビームラインによる片側1光子状態によってエンコードする場合、\\
+アダマールゲートをHBSのみで作れるため簡単である。
+\begin{gather*}
+	\ket{1_\mr{L}} = \ket{1,0}\\
+	\ket{0_\mr{L}} = \ket{0,1}
+\end{gather*}
+\includegraphics[width=0.9\linewidth]{./graphics/h.pdf}\\
+同様にこの論理Qbitでの制御Zは次のようになる。\\
+\includegraphics[width=0.9\linewidth]{./graphics/cz.pdf}\\
+よってアダマールゲートと組み合わせて制御Xを作れる。\\
+\includegraphics[width=0.9\linewidth]{./graphics/cx.pdf}\\
 
-
-
-
-
-
+\begin{itembox}[l]{問題}
+	\vspace*{-0mm}
+	\centering
+	\includegraphics[width=1\linewidth]{./graphics/6.pdf}
+\end{itembox}
 
 
 \bibliography{
