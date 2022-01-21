@@ -429,7 +429,26 @@ $(x_1,p_1),(x_2,p_2)$の言葉で書き下すと...
 	\int \dd x
 	\frac{1}{\sqrt{1-T}} W_\mr{in}(x,\sqrt{T}p_\mr{out})\frac{1}{\sqrt{\pi}} e^r e^{-e^{2r}\frac{T}{1-T}(x-\frac{1}{\sqrt{T}}x_\mr{out})^2}
 \end{gather*}
-入力状態として猫状態を入力した場合...
+入力状態として猫状態を入力した場合のウィグナー関数を示す。\\
+ウィグナー関数の項別積分が次の通りである。
+\begin{gather*}
+	\int \dd x e^{-(\sqrt{T} p_\mr{out} - p_\mr{o})^2 - (x- x_0)^2} e^{-e^{2r}\frac{T}{1-T}(x-\frac{1}{\sqrt{T}} x_\mr{out})^2}\\
+	=
+	e^{-(\sqrt{T} p_\mr{out} - p_\mr{o})^2 } \sqrt{\frac{\pi}{1 + e^{2r}\frac{T}{1-T}}} e^{-e^{2r} \frac{T}{1-T} (x_0-\frac{1}{\sqrt{T}} x_\mr{out})^2}\\
+	\,
+	\int \dd x \, 2 e^{-x^2 - (\sqrt{T} p_\mr{out})^2} \cos{2(x_0 \sqrt{T} p_\mr{out} - x p_0)} e^{-e^{2r}\frac{T}{1-T} (x-\frac{1}{\sqrt{T}} x_\mr{out})^2}\\
+	=
+	2e^{-\frac{p_0^2 + (\sqrt{T} p_\mr{out})^2}{1+e^{2r}\frac{T}{1-T}}}  e^{-\frac{e^{2r}\frac{T}{1-T}}{1 + e^{2r}\frac{T}{1-T}} \qty{(\frac{1}{\sqrt{T}}x_\mr{out})^2 + (\sqrt{T} p_\mr{out})^2} } \sqrt{\frac{\pi}{1 + e^{2r}\frac{T}{1-T}}} \cos{ 2(x_0 \sqrt{T} p_\mr{out} -   e^{-\frac{e^{2r}\frac{T}{1-T}}{1 + e^{2r}\frac{T}{1-T}}}     p_0 \frac{1}{\sqrt{T}} x_\mr{out}    ) }
+\end{gather*}
+これを利用してスクイーズされた猫状態のウィグナー関数は次のように表される。
+\begin{align*}
+	W_\mr{out}(x_\mr{out}, p_\mr{out}) \qquad \qquad \qquad \\
+	= \frac{1}{2\pi (1-e^{-2|\alpha|^2})} \sqrt{\frac{e^{2r}}{(1-T) + e^{2r}T}} \Biggl\{
+	&+ e^{-(\sqrt{T} p_\mr{out} - p_\mr{o})^2 } e^{-e^{2r} \frac{T}{1-T} (x_0-\frac{1}{\sqrt{T}} x_\mr{out})^2} \\
+	&+ e^{-(\sqrt{T} p_\mr{out} + p_\mr{o})^2 } e^{-e^{2r} \frac{T}{1-T} (-x_0-\frac{1}{\sqrt{T}} x_\mr{out})^2} \\
+	- 2e^{-\frac{p_0^2 + (\sqrt{T} p_\mr{out})^2}{1+e^{2r}\frac{T}{1-T}}}  e^{-\frac{e^{2r}\frac{T}{1-T}}{1 + e^{2r}\frac{T}{1-T}}  \qty{(\frac{1}{\sqrt{T}}x_\mr{out})^2 + (\sqrt{T} p_\mr{out})^2} } &  \cos{ 2(x_0 \sqrt{T} p_\mr{out} -   e^{-\frac{e^{2r}\frac{T}{1-T}}{1 + e^{2r}\frac{T}{1-T}}}     p_0 \frac{1}{\sqrt{T}} x_\mr{out}    ) } \Biggr\}
+\end{align*}
+
 
 \begin{itembox}[l]{問題}
 	\vspace*{-0mm}
