@@ -96,7 +96,7 @@
 \begin{document}
 \title{量子情報物理レポート}
 \author{37-216657 何 若凡}
-\date{2022年1月15日}
+\date{2022年1月20日}
 \maketitle
 
 
@@ -377,12 +377,67 @@ $r \rightarrow \infty$で入力ウィグナー関数と等しくなるため、
 よってアダマールゲートと組み合わせて制御Xを作れる。\\
 \includegraphics[width=0.9\linewidth]{./graphics/cx.pdf}\\
 
+\newpage
 \begin{itembox}[l]{問題}
 	\vspace*{-0mm}
 	\centering
 	\includegraphics[width=1\linewidth]{./graphics/6.pdf}
 \end{itembox}
 
+\includegraphics[width=0.5\linewidth]{./graphics/HBS.pdf}\\
+ユニバーサルスクイーザーのビームスプリッター部分は講義に準拠して上図のものとする。\\
+とりあえず入力状態と出力状態のウィグナー関数を定義する。
+\begin{gather*}
+	W_\mr{in}(x_\mr{in},p_\mr{in})W_\mr{sq}(x_\mr{sq}, p_\mr{sq})
+	=
+	W_\mr{in}(x_\mr{in},p_\mr{in})\frac{1}{\sqrt{\pi}} e^{-e^{2r}x_\mr{sq}^2 - e^{-2r}p_\mr{sq}^2}
+\end{gather*}
+ビームスプリッターによって次のように合波されるとする。\\
+入出力のウィグナー関数は次のように書ける。
+\begin{gather*}
+	\hat{a}_1 = \sqrt{T} \hat{a}_\mr{in} + \sqrt{1-T} \hat{a}_\mr{sq}\\
+	\hat{a}_2 = -\sqrt{1-T}\hat{a}_\mr{in} + \sqrt{T} \hat{a}_\mr{sq}\\
+	W_\mr{in}(x_\mr{in},p_\mr{in})W_\mr{sq}(x_\mr{sq}, p_\mr{sq})\\
+	= W_\text{合波}(\sqrt{T} x_\mr{in} + \sqrt{1-T} x_\mr{sq}, \sqrt{T} p_\mr{in} + \sqrt{1-T} p_\mr{sq}; -\sqrt{1-T}x_\mr{in} + \sqrt{T} x_\mr{sq}, -\sqrt{1-T}p_\mr{in} + \sqrt{T} p_\mr{sq})
+\end{gather*}
+$(x_1,p_1),(x_2,p_2)$の言葉で書き下すと...
+\begin{gather*}
+	W_\text{合波}(x_1,p_1; x_2,p_2)
+	=\\
+	W_\mr{in}(\sqrt{T}x_1 - \sqrt{1-T}x_2,\sqrt{T}p_1 - \sqrt{1-T}p_2)
+	W_\mr{sq}(\sqrt{1-T} x_1 + \sqrt{T} x_2 ,  \sqrt{1-T} p_1 + \sqrt{T} p_2 )
+\end{gather*}\\
+最終的に$\hat{p_2}$測定して、その結果を元にディスプレイスする。\\
+\includegraphics[width=0.9\linewidth]{./graphics/disp_sq.pdf}\\
+最終的な出力ウィグナー関数は次のように書ける。
+\begin{gather*}
+	W_\mr{out}(x_\mr{out},p_\mr{out})
+	=
+	\iint \dd x_2 \dd p_2 W_\text{合波}(x_\mr{out},p_\mr{out}+\sqrt{\frac{1-T}{T}}p_2; x_2, p_2)\\
+	=
+	\iint \dd x_2 \dd p_2 
+	W_\mr{in}(\sqrt{T} x_\mr{out} - \sqrt{1-T} x_2, \sqrt{T} p_\mr{out})
+	W_\mr{sq}(\sqrt{1-T} x_\mr{out} + \sqrt{T} x_2, \sqrt{1-T} p_\mr{out} + \frac{1}{\sqrt{T}} p_2)\\
+	=
+	\iint \dd x_2 \dd p_2
+	W_\mr{in}(\sqrt{1-T} x_2, \sqrt{T}p_\mr{out})
+	W_\mr{sq}( \frac{1}{\sqrt{1-T}} x_\mr{out} - \sqrt{T} x_2, \frac{1}{\sqrt{T}}p_2)\\
+	=
+	\iint \dd x \dd p
+	\sqrt{\frac{T}{1-T}} W_\mr{in}(x, \sqrt{T} p_\mr{out}) W_\mr{sq}\qty(\sqrt{\frac{T}{1-T}}(\frac{1}{\sqrt{T}} x_\mr{out} - x), p)\\
+	=
+	\int \dd x
+	\frac{1}{\sqrt{1-T}} W_\mr{in}(x,\sqrt{T}p_\mr{out})e^r e^{-e^{2r}\frac{T}{1-T}(x-\frac{1}{\sqrt{T}}x_\mr{out})^2}
+\end{gather*}
+入力状態として猫状態を入力した場合...
+
+\begin{itembox}[l]{問題}
+	\vspace*{-0mm}
+	\centering
+	\includegraphics[width=1\linewidth]{./graphics/7.pdf}
+\end{itembox}
+
+...
 
 \bibliography{
   citation.bib
