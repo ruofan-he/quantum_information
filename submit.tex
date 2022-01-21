@@ -245,9 +245,9 @@ A,Bの2モードの真空場のウィグナー関数は次のようになる。
 \begin{gather*}
 	W_0(x_A,p_A)W_0(x_B,p_B)
 	=
-	\frac{1}{\sqrt{\pi}}
+	\frac{1}{\pi}
 	e^{-x_A^2-p_A^2}
-	\frac{1}{\sqrt{\pi}}
+	\frac{1}{\pi}
 	e^{-x_B^2-p_B^2}
 \end{gather*}
 Aをpスクイーズ、Bをxスクイーズとする。
@@ -256,7 +256,7 @@ Aをpスクイーズ、Bをxスクイーズとする。
 	W_\mr{sq}(x_B,p_B)
 	=
 	W_0(e^{-r} x_A,e^r p_A)W_0(e^r x_B,e^{-r} p_B)\\
-	= \frac{1}{\pi} e^{ -e^{-2r}(x_A^2 + p_B^2) - e^{2r}(x_B^2 + p_A^2)}
+	= \frac{1}{\pi^2} e^{ -e^{-2r}(x_A^2 + p_B^2) - e^{2r}(x_B^2 + p_A^2)}
 \end{gather*}
 $\hat{a}_\mr{in}$モードのウィグナー関数を$W_\mr{in}(x_\mr{in},p_\mr{in})$とする。\\
 ビームスプリッターネットワークの出力のウィグナー関数は次のようになる。
@@ -308,7 +308,7 @@ $\hat{a}_\mr{in}$モードのウィグナー関数を$W_\mr{in}(x_\mr{in},p_\mr{
 	W_\mr{in} (x,p) 
 	W_\mr{a-sq} \qty( \frac{1}{\sqrt{2}} ( x_\mr{out} + 2x' - x ), \frac{1}{\sqrt{2}} (p_\mr{out} - p))
 	W_\mr{sq} \qty(  \frac{1}{\sqrt{2}} (-x_\mr{out} + x)   ,   \frac{1}{\sqrt{2}} ( -p_\mr{out} + 2p' + p ) )\\
-	= \iint \dd x \dd p \dd x' \dd p' W_\mr{in} (x,p) \frac{1}{\pi} e^{- \frac{(p_\mr{out} - p)^2 + (x_\mr{out} - x)^2}{2 e^{-2r}}}
+	= \iint \dd x \dd p \dd x' \dd p' W_\mr{in} (x,p) \frac{1}{\pi^2} e^{- \frac{(p_\mr{out} - p)^2 + (x_\mr{out} - x)^2}{2 e^{-2r}}}
 	e^{-\frac{(x_\mr{out}+2x' - x)^2 + (p_\mr{out} - 2p' -p)}{2e^{2r}}}\\
 	= \iint \dd x \dd p W_\mr{in}(x,p) \frac{1}{2\pi e^{-2r}} e^{- \frac{(p_\mr{out} - p)^2 + (x_\mr{out} - x)^2}{2 e^{-2r}}}
 \end{gather*}
@@ -390,7 +390,7 @@ $r \rightarrow \infty$で入力ウィグナー関数と等しくなるため、
 \begin{gather*}
 	W_\mr{in}(x_\mr{in},p_\mr{in})W_\mr{sq}(x_\mr{sq}, p_\mr{sq})
 	=
-	W_\mr{in}(x_\mr{in},p_\mr{in})\frac{1}{\sqrt{\pi}} e^{-e^{2r}x_\mr{sq}^2 - e^{-2r}p_\mr{sq}^2}
+	W_\mr{in}(x_\mr{in},p_\mr{in})\frac{1}{\pi} e^{-e^{2r}x_\mr{sq}^2 - e^{-2r}p_\mr{sq}^2}
 \end{gather*}
 ビームスプリッターによって次のように合波されるとする。\\
 入出力のウィグナー関数は次のように書ける。
@@ -427,7 +427,7 @@ $(x_1,p_1),(x_2,p_2)$の言葉で書き下すと...
 	\sqrt{\frac{T}{1-T}} W_\mr{in}(x, \sqrt{T} p_\mr{out}) W_\mr{sq}\qty(\sqrt{\frac{T}{1-T}}(\frac{1}{\sqrt{T}} x_\mr{out} - x), p)\\
 	=
 	\int \dd x
-	\frac{1}{\sqrt{1-T}} W_\mr{in}(x,\sqrt{T}p_\mr{out})e^r e^{-e^{2r}\frac{T}{1-T}(x-\frac{1}{\sqrt{T}}x_\mr{out})^2}
+	\frac{1}{\sqrt{1-T}} W_\mr{in}(x,\sqrt{T}p_\mr{out})\frac{1}{\sqrt{\pi}} e^r e^{-e^{2r}\frac{T}{1-T}(x-\frac{1}{\sqrt{T}}x_\mr{out})^2}
 \end{gather*}
 入力状態として猫状態を入力した場合...
 
