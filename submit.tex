@@ -434,7 +434,7 @@ $(x_1,p_1),(x_2,p_2)$の言葉で書き下すと...
 \begin{gather*}
 	\int \dd x e^{-(\sqrt{T} p_\mr{out} - p_\mr{o})^2 - (x- x_0)^2} e^{-e^{2r}\frac{T}{1-T}(x-\frac{1}{\sqrt{T}} x_\mr{out})^2}\\
 	=
-	e^{-(\sqrt{T} p_\mr{out} - p_\mr{o})^2 } \sqrt{\frac{\pi}{1 + e^{2r}\frac{T}{1-T}}} e^{-e^{2r} \frac{T}{1-T} (x_0-\frac{1}{\sqrt{T}} x_\mr{out})^2}\\
+	e^{-(\sqrt{T} p_\mr{out} - p_\mr{o})^2 } \sqrt{\frac{\pi}{1 + e^{2r}\frac{T}{1-T}}} e^{-\frac{e^{2r} \frac{T}{1-T}}{1 + e^{2r} \frac{T}{1-T}} (x_0-\frac{1}{\sqrt{T}} x_\mr{out})^2}\\
 	\,
 	\int \dd x \, 2 e^{-x^2 - (\sqrt{T} p_\mr{out})^2} \cos{2(x_0 \sqrt{T} p_\mr{out} - x p_0)} e^{-e^{2r}\frac{T}{1-T} (x-\frac{1}{\sqrt{T}} x_\mr{out})^2}\\
 	=
@@ -444,10 +444,17 @@ $(x_1,p_1),(x_2,p_2)$の言葉で書き下すと...
 \begin{align*}
 	W_\mr{out}(x_\mr{out}, p_\mr{out}) \qquad \qquad \qquad \\
 	= \frac{1}{2\pi (1-e^{-2|\alpha|^2})} \sqrt{\frac{e^{2r}}{(1-T) + e^{2r}T}} \Biggl\{
-	&+ e^{-(\sqrt{T} p_\mr{out} - p_\mr{o})^2 } e^{-e^{2r} \frac{T}{1-T} (x_0-\frac{1}{\sqrt{T}} x_\mr{out})^2} \\
-	&+ e^{-(\sqrt{T} p_\mr{out} + p_\mr{o})^2 } e^{-e^{2r} \frac{T}{1-T} (-x_0-\frac{1}{\sqrt{T}} x_\mr{out})^2} \\
+	&+ e^{-(\sqrt{T} p_\mr{out} - p_\mr{o})^2 } e^{- \frac{e^{2r} \frac{T}{1-T}}{1 + e^{2r} \frac{T}{1-T}} (x_0-\frac{1}{\sqrt{T}} x_\mr{out})^2} \\
+	&+ e^{-(\sqrt{T} p_\mr{out} + p_\mr{o})^2 } e^{-\frac{e^{2r} \frac{T}{1-T}}{1 + e^{2r} \frac{T}{1-T}} (-x_0-\frac{1}{\sqrt{T}} x_\mr{out})^2} \\
 	- 2e^{-\frac{p_0^2 + (\sqrt{T} p_\mr{out})^2}{1+e^{2r}\frac{T}{1-T}}}  e^{-\frac{e^{2r}\frac{T}{1-T}}{1 + e^{2r}\frac{T}{1-T}}  \qty{(\frac{1}{\sqrt{T}}x_\mr{out})^2 + (\sqrt{T} p_\mr{out})^2} } &  \cos{ 2(x_0 \sqrt{T} p_\mr{out} -   e^{-\frac{e^{2r}\frac{T}{1-T}}{1 + e^{2r}\frac{T}{1-T}}}     p_0 \frac{1}{\sqrt{T}} x_\mr{out}    ) } \Biggr\}
 \end{align*}
+下の2つの図はウィグナー関数プロットである。\\
+左は猫状態($\alpha=1.4$)であり、\\
+左はそれをユニバーサルスクイーザーによって$r=1.5,T=0.4$でスクイーズしたものである。\\
+大体$\sqrt{T}$のスクイーズができている。\\
+ただしネガティビティーが強くなることはありえないので、計算間違いは含まれている。\\
+\includegraphics[width=0.5\linewidth]{./graphics/wigner_cat_mesh.pdf}
+\includegraphics[width=0.5\linewidth]{./graphics/wigner_sqcat_mesh.pdf}
 
 
 \begin{itembox}[l]{問題}
